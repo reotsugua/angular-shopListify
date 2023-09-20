@@ -10,6 +10,9 @@ import { StarComponent } from './components/star/star.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    StarComponent
   ]
 })
 export class SharedModule { }

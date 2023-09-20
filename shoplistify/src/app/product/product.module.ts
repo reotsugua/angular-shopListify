@@ -4,7 +4,7 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductModalComponent } from './product-modal/product-modal.component';
 import {MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +15,8 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    SharedModule
   ],
   exports: [
     ProductListComponent
