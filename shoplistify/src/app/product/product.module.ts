@@ -12,6 +12,9 @@ import { ProductModalComponent } from './product-modal/product-modal.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    ProductListComponent  
   ]
 })
 export class ProductModule { }
