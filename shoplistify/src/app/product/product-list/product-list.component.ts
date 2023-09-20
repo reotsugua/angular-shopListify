@@ -21,7 +21,7 @@ export class ProductListComponent {
 
   ngOnInit(): void {
     // pageSize 10, pageNumber 1 e busca vazia
-    this.productService.getProducts('30', '1', '').subscribe((data: any[]) => {
+    this.productService.getProducts('20', '1', '').subscribe((data: any[]) => {
       this.products = data;
       console.log(data)
     });
