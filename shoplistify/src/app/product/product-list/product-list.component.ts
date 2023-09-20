@@ -11,12 +11,20 @@ export class ProductListComponent {
 
   constructor(private productService: ProductService) {}
 
+  // ngOnInit(): void {
+  //   this.productService.getProducts()
+  //     .subscribe((data: any[]) => {
+  //       this.products = data;
+  //       console.log('Products:', this.products);
+  //     });
+  // }
+
   ngOnInit(): void {
-    this.productService.getProducts()
-      .subscribe((data: any[]) => {
-        this.products = data;
-        console.log('Products:', this.products);
-      });
+    // pageSize 10, pageNumber 1 e busca vazia
+    this.productService.getProducts('20', '1', '').subscribe((data: any[]) => {
+      this.products = data;
+    });
   }
+  
 
 }
