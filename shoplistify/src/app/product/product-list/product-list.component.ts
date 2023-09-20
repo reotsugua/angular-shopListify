@@ -4,7 +4,7 @@ import { ProductService } from 'src/app/services/product.service';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent {
   products: any[] = [];
@@ -21,10 +21,11 @@ export class ProductListComponent {
 
   ngOnInit(): void {
     // pageSize 10, pageNumber 1 e busca vazia
-    this.productService.getProducts('20', '1', '').subscribe((data: any[]) => {
+    this.productService.getProducts('30', '1', '').subscribe((data: any[]) => {
       this.products = data;
+      console.log(data)
     });
   }
-  
+
 
 }
