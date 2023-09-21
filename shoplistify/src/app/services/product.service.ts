@@ -5,8 +5,10 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class ProductService {
   private apiUrl = 'http://localhost:3000/products';
+  public products: any[] = [];
 
   constructor(private http: HttpClient) { }
 

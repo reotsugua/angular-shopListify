@@ -1,4 +1,4 @@
-<mat-card class="cardProduct" *ngFor="let product of products">
+<mat-card class="cardProduct" *ngFor="let product of products" (click)="openProductModal(product)">
   <mat-card-header>
     <mat-card-title>{{product.name}}</mat-card-title>
     <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->

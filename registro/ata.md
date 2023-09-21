@@ -25,3 +25,7 @@
 + Criamos as tarefas dentro do Trello, e atribuímos uma delas a cada um dos integrantes do grupo
 
 + Definimos a forma pela qual vamos documentar o andamento do projeto
+
+## Terceira reunião e quarta reunião - 19/09 e 20/09
++ Começamos a trabalhar de acordo com a distribuição de projetos feita no Trello
+
