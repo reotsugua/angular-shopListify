@@ -7,12 +7,14 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
 import { SharedModule } from '../shared/shared.module';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 
 @NgModule({
   declarations: [
     ProductListComponent,
-    ProductModalComponent
+    ProductModalComponent,
+    ProductDetailComponent
   ],
   imports: [
     CommonModule,
