@@ -1,19 +1,22 @@
-<mat-card class="cardProduct" *ngFor="let product of products">
-  <mat-card-header>
-    <mat-card-title>{{product.name}}</mat-card-title>
-    <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
-  </mat-card-header>
-  <img mat-card-image [src]="product.avatar" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      {{product.category}}
-    </p>
-    
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>Detalhes</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>
-
-<!-- <button mat-button color="primary">Primary</button> -->
+<section class="container">
+  <div class="productList">
+    <div class="cardProduct" *ngFor="let product of products">
+      <div class="cardProduct__img">
+        <img class="cardProduct__img" [src]="product.avatar" alt="Photo of a Shiba Inu">
+      </div>
+      <div class="cardProduct__body">
+        <p class="cardProduct__title">{{product.name}}</p>
+        <p class="cardProduct__value">R$ {{product.price}}</p>
+        <p class="cardProduct__text">{{product.category}}</p>
+      </div>
+    </div>
+  </div>
+  <div  class="paginator">
+    <mat-paginator [length]="100"
+                [pageSize]="10"
+                [pageSizeOptions]="[5, 10, 25, 100]"
+                aria-label="Select page"
+                (page)="handlePageEvent($event)">
+  </mat-paginator>
+  </div>
+</section>
