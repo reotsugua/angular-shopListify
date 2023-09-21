@@ -7,6 +7,7 @@ import { ProductModule } from './product/product.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatButtonModule,
     ProductModule,
     FontAwesomeModule,
+    CoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
