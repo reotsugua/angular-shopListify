@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductModule } from './product/product.module';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -13,6 +15,8 @@ import { ProductModule } from './product/product.module';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatCardModule,
+    MatButtonModule,
     ProductModule
   ],
   providers: [],
