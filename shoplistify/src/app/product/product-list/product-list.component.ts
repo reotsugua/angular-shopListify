@@ -12,9 +12,9 @@ export class ProductListComponent {
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-    this.getProducts('12', '0');
+    this.getProducts('15', '0');
   }
-
+  
   // length:100
   // pageIndex:1
   // pageSize:10
