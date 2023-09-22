@@ -5,17 +5,24 @@ import { ProductModalComponent } from './product-modal/product-modal.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { SharedModule } from '../shared/shared.module';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+
 
 @NgModule({
   declarations: [
     ProductListComponent,
-    ProductModalComponent
+    ProductModalComponent,
+    ProductDetailComponent
   ],
   imports: [
     CommonModule,
     MatCardModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+    MatPaginatorModule,
+    SharedModule
   ],
   exports: [
     ProductListComponent

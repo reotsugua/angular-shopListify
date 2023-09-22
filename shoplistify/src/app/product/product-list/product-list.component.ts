@@ -13,17 +13,9 @@ export class ProductListComponent {
 
   constructor(private productService: ProductService, private dialog: MatDialog) {}
 
-  // ngOnInit(): void {
-  //   this.productService.getProducts()
-  //     .subscribe((data: any[]) => {
-  //       this.products = data;
-  //       console.log('Products:', this.products);
-  //     });
-  // }
-
   ngOnInit(): void {
     // pageSize 10, pageNumber 1 e busca vazia
-    this.productService.getProducts('20', '1', '').subscribe((data: any[]) => {
+    this.productService.getProducts('12', '0', '').subscribe((data: any[]) => {
       this.products = this.productService.products = data;
     });
   }
@@ -67,5 +59,27 @@ export class ProductListComponent {
     } else {
       //search for productId in cart, subtract quantity from it
     }
+  }
+
+  // length:100
+  // pageIndex:1
+  // pageSize:10
+  // previousPageIndex:0
+
+  handlePageEvent(event:any){
+    const {pageIndex, pageSize} = event;
+    this.getProducts(pageSize, pageIndex);
+    console.log(pageIndex)
+  }
+
+  getProducts( pageSize:string,  pageNumber:string) {
+      // pageSize 10, pageNumber 1 e busca vazia
+      if (pageNumber == '0') {
+        pageNumber = "1"
+      }
+      this.productService.getProducts(pageSize, pageNumber , '').subscribe((data: any[]) => {
+      this.products = data;
+      console.log(data)
+    });
   }
 }
