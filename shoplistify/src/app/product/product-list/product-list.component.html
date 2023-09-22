@@ -13,11 +13,8 @@
     </div>
   </div>
   <div class="paginator">
-    <mat-paginator [length]="1000"
-                [pageSize]="9"
-                [pageSizeOptions]="[3, 6, 15, 24, 36, 99]"
-                aria-label="Select page"
-                (page)="handlePageEvent($event)">
-  </mat-paginator>
+    <mat-paginator [length]="1000" [pageSize]="9" [pageSizeOptions]="[3, 6, 12, 15, 24, 36, 99]" aria-label="Select page"
+      (page)="handlePageEvent($event)">
+    </mat-paginator>
   </div>
 </section>
