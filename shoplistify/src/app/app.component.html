@@ -2,15 +2,20 @@
     <div
         class="flex justify-between items-center bg-white-300 dark:text-white dark:bg-blue-950 p-5 font-medium text-lg shadow-lg">
         Shoplistify
+        <button>
+            <div class="demo-section">
+                <mat-icon matBadge="15" matBadgeColor="warn">shopping_cart</mat-icon>
+            </div>
+        </button>
         <button class="flex transition-transform hover:scale-125 align-middle" (click)="darkMode.set(!darkMode())">
             <span *ngIf="!darkMode()" class="material-icons">dark_mode</span>
             <span *ngIf="darkMode()" class="material-icons">light_mode</span>
         </button>
     </div>
 
-<app-top-bar></app-top-bar>
+    <app-top-bar></app-top-bar>
 
-<app-product-list></app-product-list>
+    <app-product-list></app-product-list>
 
     <button mat-raised-button color="primary">Primary</button>
 
