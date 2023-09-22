@@ -15,7 +15,7 @@ export class ProductListComponent {
 
   ngOnInit(): void {
     // pageSize 10, pageNumber 1 e busca vazia
-    this.productService.getProducts('12', '1', '').subscribe((data: any[]) => {
+    this.productService.getProducts('15', '1', '').subscribe((data: any[]) => {
       this.products = this.productService.products = data;
     });
   }
@@ -59,8 +59,9 @@ export class ProductListComponent {
     } else {
       //search for productId in cart, subtract quantity from it
     }
+    this.getProducts('15', '0');
   }
-
+  
   // length:100
   // pageIndex:1
   // pageSize:10
