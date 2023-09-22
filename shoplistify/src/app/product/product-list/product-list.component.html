@@ -1,6 +1,6 @@
 <section class="container">
   <div class="productList">
-    <div class="cardProduct" *ngFor="let product of products">
+    <div class="cardProduct" *ngFor="let product of products" (click)="openProductModal(product)">
       <div class="cardProduct__img">
         <img class="cardProduct__img" [src]="product.avatar" alt="Photo of a Shiba Inu">
       </div>
@@ -12,10 +12,10 @@
       </div>
     </div>
   </div>
-  <div  class="paginator">
-    <mat-paginator [length]="100"
-                [pageSize]="10"
-                [pageSizeOptions]="[5, 10, 25, 100]"
+  <div class="paginator">
+    <mat-paginator [length]="1000"
+                [pageSize]="9"
+                [pageSizeOptions]="[3, 6, 15, 24, 36, 99]"
                 aria-label="Select page"
                 (page)="handlePageEvent($event)">
   </mat-paginator>

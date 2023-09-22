@@ -1,1 +1,6 @@
-<p>product-modal works!</p>
+<p>{{ data.name }}</p>
+
+<input matInput type="number" [(ngModel)]="quantity"/>
+
+<button (click)="changeProductQuantityInCart(data.id, true)">Adicionar</button>
+<button (click)="changeProductQuantityInCart(data.id, false)">Remover</button>

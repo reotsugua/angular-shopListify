@@ -7,6 +7,9 @@ import { ProductModule } from './product/product.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CoreModule } from './core/core.module';
 import {MatIconModule} from '@angular/material/icon';
 import {MatBadgeModule} from '@angular/material/badge';
@@ -24,6 +27,9 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatButtonModule,
     ProductModule,
     FontAwesomeModule,
+    MatDialogModule,
+    FormsModule,
+    MatSnackBarModule,
     CoreModule,
     MatIconModule,
     MatBadgeModule
@@ -31,4 +37,5 @@ import {MatBadgeModule} from '@angular/material/badge';
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
