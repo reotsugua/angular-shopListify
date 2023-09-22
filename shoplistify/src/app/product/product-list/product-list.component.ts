@@ -24,7 +24,6 @@ export class ProductListComponent {
     let productModalDialog = this.dialog.open(ProductModalComponent, {
       data: product,
       panelClass: 'product-modal',
-      height: '80vh',
       width: '80vw'
     });
 
