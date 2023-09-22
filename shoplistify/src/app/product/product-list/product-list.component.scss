@@ -1,7 +1,7 @@
 .container {
-  padding: 0 25px;
   margin: 0 auto;
   max-width: 1166px;
+  padding: 30px 25px 0;
 }
 
 .productList {
@@ -23,6 +23,11 @@
   box-sizing: border-box;
   box-shadow: rgba(0, 0, 0, 25%)0 4px 4px 0;
   height: 95px;
+
+  &:hover{
+    cursor: pointer;
+    opacity: 0.7;
+  }
 
   &__img {
     border-radius: 20px 0 0 20px;
@@ -52,6 +57,7 @@
 .paginator {
   display: flex;
   justify-content: center;
+  padding-top: 10px;
 
 }
 
