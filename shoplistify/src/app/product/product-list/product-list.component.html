@@ -16,7 +16,7 @@
       <mat-card-header>
         <div class="example-header-image"></div>
         <!-- <div mat-card-avatar class="example-header-image"></div> -->
-        <mat-card-title style="font-size: 1rem">{{
+        <mat-card-title style="font-size: 0.85rem">{{
           product.name | uppercase
         }}</mat-card-title>
         <!-- <mat-card-subtitle >{{product.category | lowercase}}</mat-card-subtitle> -->
@@ -39,7 +39,7 @@
         </div>
         <div>
           <button mat-button style="font-size: 1.2rem">
-            R$ {{ product.price }}
+            R$ {{ product.price | currencyFormat }}
           </button>
         </div>
       </mat-card-actions>
