@@ -1,7 +1,6 @@
 
 .productModal {
   display: flex;
-  padding: 10px;
 
   &__img_div {
     width: 50%;
@@ -24,28 +23,19 @@
   }
   
   &__title {
-    font-size: 15px;
     font-weight: 500;
     margin: 0;
   }
 
-  &__rating {
-    font-size: 10px;
-  }
-
   &__text {
-    font-size: 10px;
     margin: 0;
   }
 
   &__value {
-    font-size: 13px;
     margin: 5px 0;
   }
 
   &__description {
-    font-size: 10px;
-    line-height: 13px;
     margin: 0;
   }
   
@@ -57,6 +47,7 @@
     border-radius: 4px;
     width: 100%;
     border: 1px solid black;
+    padding: 5px;
   }
 
   &__buttons_div {
@@ -69,16 +60,37 @@
     background: #6366f1;
     padding: 4px;
     border-radius: 4px;
-    font-size: 12px;
   }
 }
 
 @media (max-width: 600px) {
   .productModal {
     flex-direction: column;
+    padding: 10px;
 
     &__img_div {
       width: 100%;
+    }
+
+    &__buttons_div {
+      justify-content: space-around;
+    }
+
+    &__title {
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    &__rating {
+      font-size: 15px;
+    }
+
+    &__text {
+      font-size: 15px;
+    }
+
+    &__value {
+      font-size: 18px;
     }
 
     &__info {
@@ -86,8 +98,60 @@
       margin: 10px 0;
     }
 
-    &__buttons_div {
-      justify-content: space-around;
+    &__description {
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    &__button {
+      font-size: 15px;
+    }
+  }
+}
+
+@media (min-width: 601px) {
+  .productModal {
+    padding: 30px;
+    gap: 20px;
+
+    &__body {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      height: 70%;
+      justify-content: flex-start;
+      line-height: 40px;
+    }
+
+    &__title {
+      font-size: 2.5rem;
+      max-height: none;
+    }
+
+    &__rating {
+      // font-size: 1.5rem;
+    }
+
+    &__text {
+      font-size: 1.5rem;
+    }
+
+    &__value {
+      font-size: 2rem;
+    }
+
+    &__description {
+      font-size: 2rem;
+      line-height: 45px;
+    }
+
+    &__input {
+      font-size: 2rem;
+    }
+
+    &__button {
+      font-size: 1.5rem;
+      padding: 20px;
     }
   }
 }
