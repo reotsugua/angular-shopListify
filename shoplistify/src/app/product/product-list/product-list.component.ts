@@ -8,8 +8,11 @@ import { ProductModalComponent } from '../product-modal/product-modal.component'
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
   products: any[] = [];
+  pageSize = '12';
+  pageNumber = '1';
+  searchText: string = '';
 
   constructor(
     private productService: ProductService,
@@ -17,11 +20,30 @@ export class ProductListComponent {
   ) {}
 
   ngOnInit(): void {
-    // pageSize 10, pageNumber 1 e busca vazia
-    this.productService.getProducts('12', '1', '').subscribe((data: any[]) => {
-      this.products = this.productService.products = data;
-    });
+    this.loadProducts();
   }
+
+  loadProducts() {
+    this.productService
+      .getProducts(this.pageSize, this.pageNumber, this.searchText)
+      .subscribe((data: any[]) => {
+        this.products = this.productService.products = data;
+      });
+  }
+
+  handlePageEvent(event: any) {
+    const { pageIndex, pageSize } = event;
+    this.pageNumber = (pageIndex + 1).toString();
+    this.pageSize = pageSize.toString();
+    this.loadProducts();
+  }
+
+  onSearch(searchText: string) {
+    this.searchText = searchText;
+    this.loadProducts();
+  }
+
+
 
   public openProductModal(product: any): void {
     let productModalDialog = this.dialog.open(ProductModalComponent, {
@@ -73,11 +95,11 @@ export class ProductListComponent {
     this.getProducts('15', '0');
   }
 
-  handlePageEvent(event: any) {
-    const { pageIndex, pageSize } = event;
-    this.getProducts(pageSize, pageIndex);
-    console.log(pageIndex);
-  }
+  // handlePageEvent(event: any) {
+  //   const { pageIndex, pageSize } = event;
+  //   this.getProducts(pageSize, pageIndex);
+  //   console.log(pageIndex);
+  // }
 
   getProducts(pageSize: string, pageNumber: string) {
     // pageSize 10, pageNumber 1 e busca vazia

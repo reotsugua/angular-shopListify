@@ -1,4 +1,5 @@
 <section class="container">
+  <app-product-search (search)="onSearch($event)"></app-product-search>
   <div class="productList">
     <div class="cardProduct" *ngFor="let product of products" (click)="openProductModal(product)">
       <div class="cardProduct__img">
