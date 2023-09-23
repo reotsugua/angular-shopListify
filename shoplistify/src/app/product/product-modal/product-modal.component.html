@@ -11,10 +11,10 @@
             <p class="productModal__description">{{data.description}}</p>
         </div>
         <div class="productModal__selection">
-            <input class="productModal__input" matInput type="number" [(ngModel)]="quantity"/>
+            <input class="productModal__input" matInput type="number" min="0" [(ngModel)]="quantity"/>
             <div class="productModal__buttons_div">
-                <button class="productModal__button" (click)="changeProductQuantityInCart(data.id, true)">Adicionar</button>
                 <button class="productModal__button" (click)="changeProductQuantityInCart(data.id, false)">Remover</button>
+                <button class="productModal__button" (click)="changeProductQuantityInCart(data.id, true)">Adicionar</button>
             </div>
         </div>
     </div>

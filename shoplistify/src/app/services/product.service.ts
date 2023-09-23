@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 export class ProductService {
   private apiUrl = 'http://localhost:3000/products';
   public products: any[] = [];
+  public productsInCartArray$: Subject<{productId: string, productQuantity: number}[]> = new Subject<{productId: string, productQuantity: number}[]>();
+  public productsTotal$: Subject<number> = new Subject<number>;
 
   constructor(private http: HttpClient) { }
 
@@ -32,4 +34,6 @@ export class ProductService {
 
     return this.http.get<any[]>(this.apiUrl, { params });
   }
+
+
 }
