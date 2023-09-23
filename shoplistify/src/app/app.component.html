@@ -1,4 +1,5 @@
-<div class="dark:bg-blue-950 dark:text-gray-300">
+<main class="dark:bg-blue-950 dark:text-gray-300">
+  <!-- header/conteudo -->
     <div
         class="flex justify-between items-center bg-white-300 dark:text-white dark:bg-sky-500/10 p-5 font-medium text-lg shadow-lg">
         Shoplistify
@@ -12,13 +13,14 @@
             <span *ngIf="darkMode()" class="material-icons">light_mode</span>
         </button>
     </div>
-
-    <app-top-bar></app-top-bar>
-
-    <app-product-list></app-product-list>
-
-</div>
-
+   <!-- <app-top-bar></app-top-bar> -->
+   <section class="content">
+    <app-side-bar>
+    </app-side-bar>
+     <app-product-list></app-product-list>
+   </section>
+</main>
+<!-- footer -->
 <div class="bg-gray-200 dark:bg-black relative isolate overflow-hidden py-16 sm:py-24 lg:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
