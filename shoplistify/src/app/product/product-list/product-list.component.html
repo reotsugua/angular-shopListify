@@ -1,7 +1,9 @@
-<section class="container">
-  <app-product-search (search)="onSearch($event)"></app-product-search>
-
+<div style="position: absolute;top: 14px;right: 50px;">
   <app-product-refresh-button (refresh)="resetPagination()"></app-product-refresh-button>
+</div>
+<section class="container">
+
+  <app-product-search (search)="onSearch($event)"></app-product-search>
 
   <div class="productList">
     <div class="cardProduct" *ngFor="let product of products" (click)="openProductModal(product)">
