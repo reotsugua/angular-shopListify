@@ -9,7 +9,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { SharedModule } from '../shared/shared.module';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductSearchComponent } from './product-search/product-search.component';
-
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { ProductSearchComponent } from './product-search/product-search.componen
     MatButtonModule,
     FormsModule,
     MatPaginatorModule,
-    SharedModule
+    SharedModule,
+    MatInputModule
   ],
   exports: [
     ProductListComponent,
