@@ -8,13 +8,15 @@ import { FormsModule } from '@angular/forms';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { SharedModule } from '../shared/shared.module';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductSearchComponent } from './product-search/product-search.component';
 
 
 @NgModule({
   declarations: [
     ProductListComponent,
     ProductModalComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ProductSearchComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     SharedModule
   ],
   exports: [
-    ProductListComponent
+    ProductListComponent,
+    ProductSearchComponent
   ]
 })
 
