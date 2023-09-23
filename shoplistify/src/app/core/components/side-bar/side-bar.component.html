@@ -1,1 +1,30 @@
-<p>side-bar works!</p>
+<h2>Filtrar</h2>
+
+<mat-card class="category">
+  <mat-card-header>
+    <mat-card-title>Categoria</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <section class="example-section" [formGroup]="category">
+      <p><mat-checkbox formControlName="tools">Tools</mat-checkbox></p>
+      <p><mat-checkbox formControlName="automotive">Automotive</mat-checkbox></p>
+      <p><mat-checkbox formControlName="sports">Sports</mat-checkbox></p>
+      <p><mat-checkbox formControlName="music">Music</mat-checkbox></p>
+      <p><mat-checkbox formControlName="toys">Toys</mat-checkbox></p>
+    </section>
+  </mat-card-content>
+ </mat-card>
+
+ <mat-card class="price">
+  <mat-card-header>
+    <mat-card-title>Preços</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <section class="example-section" [formGroup]="price">
+      <p><mat-checkbox formControlName="range1">Até R$ 50,00</mat-checkbox></p>
+      <p><mat-checkbox formControlName="range2">R$ 50,00 a R$ 100,00</mat-checkbox></p>
+      <p><mat-checkbox formControlName="range3">R$ 100,00 a R$ 200,00</mat-checkbox></p>
+      <p><mat-checkbox formControlName="range4">Acima de R$ 200,00</mat-checkbox></p>
+    </section>
+  </mat-card-content>
+ </mat-card>

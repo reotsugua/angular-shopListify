@@ -5,6 +5,10 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -17,10 +21,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CommonModule,
     MatIconModule,
     MatToolbarModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatCardModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports:[
-    TopBarComponent
+    TopBarComponent,
+    SideBarComponent
   ]
 })
 export class CoreModule { }
