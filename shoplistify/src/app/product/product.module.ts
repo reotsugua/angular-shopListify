@@ -12,6 +12,8 @@ import { ProductSearchComponent } from './product-search/product-search.componen
 import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { ProductRefreshButtonComponent } from './product-refresh-button/product-refresh-button.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { ProductRefreshButtonComponent } from './product-refresh-button/product-
     MatPaginatorModule,
     SharedModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule
   ],
   exports: [
     ProductListComponent,

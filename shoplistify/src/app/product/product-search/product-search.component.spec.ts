@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ProductModule } from '../product.module';
 import { ProductSearchComponent } from './product-search.component';
 
 describe('ProductSearchComponent', () => {
@@ -8,6 +8,7 @@ describe('ProductSearchComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [ProductModule],
       declarations: [ProductSearchComponent]
     });
     fixture = TestBed.createComponent(ProductSearchComponent);
