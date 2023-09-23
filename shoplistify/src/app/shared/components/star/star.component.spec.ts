@@ -18,4 +18,14 @@ describe('StarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should calculate starWidth correctly based on rating', () => {
+    
+    component.rating = 3;
+
+    component.ngOnChanges();
+
+    expect(component.starWidth).toBe(3 * 68 / 5);
+  });
+  
 });

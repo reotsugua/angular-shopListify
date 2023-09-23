@@ -19,4 +19,28 @@ describe('ProductSearchComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit search event on search', () => {
+    const searchText = 'example search';
+    spyOn(component.search, 'emit');
+  
+    component.searchText = searchText;
+    component.onSearch();
+  
+    expect(component.search.emit).toHaveBeenCalledWith(searchText);
+  });
+
+  it('should clear search text', () => {
+    component.searchText = 'example search';
+    component.clearSearch();
+    expect(component.searchText).toBe('');
+  });
+
+  it('should initialize correctly', () => {
+    expect(component).toBeTruthy();
+    expect(component.searchText).toBe('');
+  });
+  
+  
+  
 });
