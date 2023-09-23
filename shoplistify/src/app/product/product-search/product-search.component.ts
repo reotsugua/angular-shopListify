@@ -1,15 +1,10 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
+
 @Component({
   selector: 'app-product-search',
-  template: `
-    <input
-      type="text"
-      placeholder="Pesquisar produtos"
-      [(ngModel)]="searchText"
-      (keyup)="onSearch()"
-    />
-  `,
+  templateUrl: './product-search.component.html',
+  styleUrls: ['./product-search.component.scss'],
 })
 export class ProductSearchComponent {
   @Output() search = new EventEmitter<string>();
