@@ -11,4 +11,6 @@ export class ProductRefreshButtonComponent {
   onRefresh(): void {
     this.refresh.emit();
   }
+
+  
 }
