@@ -43,8 +43,6 @@ export class ProductListComponent implements OnInit {
     this.loadProducts();
   }
 
-
-
   public openProductModal(product: any): void {
     let productModalDialog = this.dialog.open(ProductModalComponent, {
       data: product,
@@ -95,12 +93,6 @@ export class ProductListComponent implements OnInit {
     this.getProducts('15', '0');
   }
 
-  // handlePageEvent(event: any) {
-  //   const { pageIndex, pageSize } = event;
-  //   this.getProducts(pageSize, pageIndex);
-  //   console.log(pageIndex);
-  // }
-
   getProducts(pageSize: string, pageNumber: string) {
     // pageSize 10, pageNumber 1 e busca vazia
     if (pageNumber == '0') {
@@ -112,5 +104,12 @@ export class ProductListComponent implements OnInit {
         this.products = data;
         console.log(data);
       });
+  }
+
+  resetPagination(): void {
+    this.pageSize = '12'; // Defina o pageSize inicial
+    this.pageNumber = '1'; // Defina o pageNumber inicial
+    this.searchText = ''; // Limpe o texto de busca
+    this.loadProducts(); // Carregue os produtos com os novos parâmetros
   }
 }

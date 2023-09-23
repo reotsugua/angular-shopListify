@@ -1,5 +1,8 @@
 <section class="container">
   <app-product-search (search)="onSearch($event)"></app-product-search>
+
+  <app-product-refresh-button (refresh)="resetPagination()"></app-product-refresh-button>
+
   <div class="productList">
     <div class="cardProduct" *ngFor="let product of products" (click)="openProductModal(product)">
       <div class="cardProduct__img">
