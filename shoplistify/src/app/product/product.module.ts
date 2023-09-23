@@ -8,13 +8,18 @@ import { FormsModule } from '@angular/forms';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { SharedModule } from '../shared/shared.module';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-
+import { ProductSearchComponent } from './product-search/product-search.component';
+import {MatInputModule} from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { ProductRefreshButtonComponent } from './product-refresh-button/product-refresh-button.component';
 
 @NgModule({
   declarations: [
     ProductListComponent,
     ProductModalComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ProductSearchComponent,
+    ProductRefreshButtonComponent
   ],
   imports: [
     CommonModule,
@@ -22,10 +27,13 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     MatButtonModule,
     FormsModule,
     MatPaginatorModule,
-    SharedModule
+    SharedModule,
+    MatInputModule,
+    MatIconModule
   ],
   exports: [
-    ProductListComponent
+    ProductListComponent,
+    ProductSearchComponent
   ]
 })
 

@@ -57,7 +57,16 @@
 .paginator {
   display: flex;
   justify-content: center;
-  padding-top: 10px;
-
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
+
+.example-card {
+  max-width: 16.8rem;
+}
+
+// .example-header-image {
+//   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+//   background-size: cover;
+// }
 

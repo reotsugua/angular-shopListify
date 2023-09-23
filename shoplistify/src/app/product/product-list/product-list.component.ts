@@ -9,10 +9,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss'],
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
   products: any[] = [];
   productsInCartArray: {productId: string, productQuantity: number}[] = [];
   productsQuantityInCart: number = 0;
+  pageSize = '12';
+  pageNumber = '1';
+  searchText: string = '';
 
   constructor(
     private productService: ProductService,
@@ -21,10 +24,10 @@ export class ProductListComponent {
   ) {}
 
   ngOnInit(): void {
-    // pageSize 10, pageNumber 1 e busca vazia
-    this.productService.getProducts('12', '1', '').subscribe((data: any[]) => {
-      this.products = this.productService.products = data;
-    });
+    // // pageSize 10, pageNumber 1 e busca vazia
+    // this.productService.getProducts('12', '1', '').subscribe((data: any[]) => {
+    //   this.products = this.productService.products = data;
+    // });
 
     if (localStorage.getItem("products")) {
       this.productsInCartArray = JSON.parse(localStorage.getItem("products")!);
@@ -35,6 +38,27 @@ export class ProductListComponent {
     } else {
       this.productService.productsTotal$.next(0);
     }
+    this.loadProducts();
+  }
+
+  loadProducts() {
+    this.productService
+      .getProducts(this.pageSize, this.pageNumber, this.searchText)
+      .subscribe((data: any[]) => {
+        this.products = this.productService.products = data;
+      });
+  }
+
+  handlePageEvent(event: any) {
+    const { pageIndex, pageSize } = event;
+    this.pageNumber = (pageIndex + 1).toString();
+    this.pageSize = pageSize.toString();
+    this.loadProducts();
+  }
+
+  onSearch(searchText: string) {
+    this.searchText = searchText;
+    this.loadProducts();
   }
 
   public openProductModal(product: any): void {
@@ -165,12 +189,6 @@ export class ProductListComponent {
     this.productService.productsInCartArray$.next(this.productsInCartArray);
   }
 
-  handlePageEvent(event: any): void {
-    const { pageIndex, pageSize } = event;
-    this.getProducts(pageSize, pageIndex);
-    console.log(pageIndex);
-  }
-
   getProducts(pageSize: string, pageNumber: string): void {
     // pageSize 10, pageNumber 1 e busca vazia
     if (pageNumber == '0') {
@@ -182,5 +200,12 @@ export class ProductListComponent {
         this.products = data;
         console.log(data);
       });
+  }
+
+  resetPagination(): void {
+    this.pageSize = '12'; // Defina o pageSize inicial
+    this.pageNumber = '1'; // Defina o pageNumber inicial
+    this.searchText = ''; // Limpe o texto de busca
+    this.loadProducts(); // Carregue os produtos com os novos parâmetros
   }
 }
