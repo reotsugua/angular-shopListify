@@ -1,7 +1,36 @@
 <section class="container">
   <app-product-search (search)="onSearch($event)"></app-product-search>
   <div class="productList">
-    <div class="cardProduct" *ngFor="let product of products" (click)="openProductModal(product)">
+    <mat-card class="example-card" *ngFor="let product of products" (click)="openProductModal(product)">
+      <mat-card-header>
+        <div  class="example-header-image"></div>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-card-title>{{product.name}}</mat-card-title>
+        <mat-card-subtitle>{{product.category}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="product.avatar" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        
+        <!-- <p>
+          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+          bred for hunting.
+        </p> -->
+      </mat-card-content>
+      <mat-card-actions >
+        <div style="width: 65%;">
+
+          <app-star [rating]="product.rating"></app-star>
+        </div>
+        <div>
+
+          <button mat-button >R$ {{product.price}}</button>
+        </div>
+        
+        
+      </mat-card-actions>
+    </mat-card>
+    <!-- <div class="cardProduct" *ngFor="let product of products" (click)="openProductModal(product)">
       <div class="cardProduct__img">
         <img class="cardProduct__img" [src]="product.avatar" alt="Photo of a Shiba Inu">
       </div>
@@ -11,11 +40,14 @@
         <p class="cardProduct__value">R$ {{product.price}}</p>
         <p class="cardProduct__text">{{product.category}}</p>
       </div>
-    </div>
+    </div> -->
   </div>
+  
+  
   <div class="paginator">
     <mat-paginator class="dark:bg-blue-950 dark:text-gray-300" [length]="1000" [pageSize]="9" [pageSizeOptions]="[3, 6, 12, 15, 24, 36, 99]" aria-label="Select page"
       (page)="handlePageEvent($event)">
     </mat-paginator>
   </div>
+
 </section>
