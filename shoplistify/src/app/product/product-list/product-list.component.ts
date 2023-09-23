@@ -41,6 +41,9 @@ export class ProductListComponent implements OnInit {
     this.loadProducts();
   }
 
+  
+  
+
   loadProducts() {
     this.productService
       .getProducts(this.pageSize, this.pageNumber, this.searchText)

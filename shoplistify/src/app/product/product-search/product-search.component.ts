@@ -1,6 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
-
 @Component({
   selector: 'app-product-search',
   templateUrl: './product-search.component.html',
@@ -12,5 +11,9 @@ export class ProductSearchComponent {
 
   onSearch() {
     this.search.emit(this.searchText);
+  }
+
+  clearSearch() {
+    this.searchText = '';
   }
 }
