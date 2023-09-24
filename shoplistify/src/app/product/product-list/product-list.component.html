@@ -15,12 +15,12 @@
       <mat-card-header>
         <div class="example-header-image"></div>
         <!-- <div mat-card-avatar class="example-header-image"></div> -->
-        <mat-card-title style="font-size: 0.85rem">{{
+        <mat-card-title class="cursor-pointer" style="font-size: 0.85rem">{{
           product.name | uppercase
         }}</mat-card-title>
         <!-- <mat-card-subtitle >{{product.category | lowercase}}</mat-card-subtitle> -->
       </mat-card-header>
-      <img mat-card-image [src]="product.avatar" alt="Photo of a Shiba Inu" />
+      <img class="cursor-pointer" mat-card-image [src]="product.avatar" alt="Photo of a Shiba Inu" />
 
       <mat-card-subtitle style="padding-left: 8px">{{
         product.category | lowercase

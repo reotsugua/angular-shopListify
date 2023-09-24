@@ -4,10 +4,10 @@
     </div>
     <div class="productModal__info">
         <div class="productModal__body">
-            <p class="productModal__title uppercase text-pink-800">{{data.name}}</p>
+            <p class="productModal__title text-pink-800">{{data.name | uppercase}}</p>
             <app-star class="productModal__rating text-yellow-600" [rating]="data.rating"></app-star>
-            <p class="productModal__text text-xs">{{data.category}}</p>
-            <p class="productModal__value font-medium text-pink-700">R$ {{data.price}}</p>
+            <p class="productModal__text text-xs">{{data.category | lowercase}}</p>
+            <p class="productModal__value font-medium text-pink-700">R$ {{data.price | currencyFormat}}</p>
             <p class="productModal__description text-xs text-justify">{{data.description}}</p>
         </div>
         <br>
