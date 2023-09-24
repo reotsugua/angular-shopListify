@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,9 @@ import { FormBuilder } from '@angular/forms';
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.css']
 })
-export class SideBarComponent {
+export class SideBarComponent implements OnInit {
+  @Output() handleCategoryFilter = new EventEmitter();
+  @Output() handlePriceFilter = new EventEmitter();
 
   category = this._formBuilder.group({
     tools: false,
@@ -24,5 +26,28 @@ export class SideBarComponent {
   });
 
   constructor(private _formBuilder: FormBuilder) {}
+
+  ngOnInit(): void {
+    this.handleCategoryForm();
+    this.handlePriceForm();
+  }
+
+  handleCategoryForm() {
+    let filterSelected:string[] = [];
+    this.category.valueChanges.subscribe((categorys:any)=> {
+      const keys = Object.keys(categorys)
+      filterSelected = [...keys.filter((key) => !!categorys[key])];
+      this.handleCategoryFilter.emit(filterSelected)
+    });
+  }
+  handlePriceForm() {
+    let filterSelected:string[] = [];
+    this.price.valueChanges.subscribe((items:any)=> {
+      const keys = Object.keys(items)
+      filterSelected = [...keys.filter((key) => !!items[key])];
+      this.handlePriceFilter.emit(filterSelected)
+    });
+  }
+
 
 }

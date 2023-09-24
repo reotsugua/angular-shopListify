@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ProductListComponent implements OnInit {
   products: any[] = [];
+  productsFull: any[] = [];
   productsInCartArray: {productId: string, productQuantity: number}[] = [];
   productsQuantityInCart: number = 0;
   pageSize = '12';
@@ -33,7 +34,7 @@ export class ProductListComponent implements OnInit {
       this.productsInCartArray = JSON.parse(localStorage.getItem("products")!);
       this.productsInCartArray.forEach(product => {
         this.productsQuantityInCart += product.productQuantity;
-        this.productService.productsTotal$.next(this.productsQuantityInCart); 
+        this.productService.productsTotal$.next(this.productsQuantityInCart);
       })
     } else {
       this.productService.productsTotal$.next(0);
@@ -41,14 +42,12 @@ export class ProductListComponent implements OnInit {
     this.loadProducts();
   }
 
-  
-  
-
   loadProducts() {
     this.productService
       .getProducts(this.pageSize, this.pageNumber, this.searchText)
       .subscribe((data: any[]) => {
         this.products = this.productService.products = data;
+        this.productsFull = data;
       });
   }
 
@@ -210,4 +209,53 @@ export class ProductListComponent implements OnInit {
     this.searchText = ''; // Limpe o texto de busca
     this.loadProducts(); // Carregue os produtos com os novos parâmetros
   }
+
+  handleCategoryFilterSideBar(categorys:string[]) {
+    if (categorys.length > 0 ) {
+      this.products = [...this.productsFull.filter((product)=>{
+        return categorys.includes(product.category.toLowerCase())
+      })];
+    } else {
+      this.products = this.productsFull;
+    }
+  }
+  handlePriceFilterSideBar(prices:any[]) {
+    const convertValueToFloat = (value:any) => parseFloat(value.replace(/[^0-9.-]/g, ''));
+
+    if (prices.length === 0) {
+      this.products = [...this.productsFull]
+    }
+
+    // Até R$ 50,00
+    if (prices.includes('range1')) {
+      this.products = [...this.productsFull.filter((product)=>{
+        const valuePrice = convertValueToFloat(product.price);
+        return valuePrice <= 50
+      })];
+    }
+    // R$ 50,00 a R$ 100,00
+    if (prices.includes('range2')) {
+      this.products = [...this.productsFull.filter((product)=>{
+        const valuePrice = convertValueToFloat(product.price);
+        return valuePrice >= 50 && valuePrice <=100
+      })];
+    }
+
+    // R$ 100,00 a R$ 200,00
+    if (prices.includes('range3')) {
+      this.products = [...this.productsFull.filter((product)=>{
+        const valuePrice = convertValueToFloat(product.price);
+        return valuePrice >= 100 && valuePrice <= 200
+      })];
+    }
+
+    // Acima de R$ 200,00
+    if (prices.includes('range4')) {
+      this.products = [...this.productsFull.filter((product)=>{
+        const valuePrice = convertValueToFloat(product.price);
+        return valuePrice > 200
+      })];
+    }
+  }
+
 }

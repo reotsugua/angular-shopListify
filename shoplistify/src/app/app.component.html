@@ -15,9 +15,10 @@
     </div>
    <!-- <app-top-bar></app-top-bar> -->
    <section class="content">
-    <app-side-bar>
-    </app-side-bar>
-     <app-product-list></app-product-list>
+    <app-side-bar
+      (handleCategoryFilter)="productList.handleCategoryFilterSideBar($event)"
+      (handlePriceFilter)="productList.handlePriceFilterSideBar($event)"></app-side-bar>
+     <app-product-list #productList></app-product-list>
    </section>
 </main>
 <!-- footer -->
