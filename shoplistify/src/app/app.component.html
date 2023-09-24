@@ -1,15 +1,58 @@
-<div class="dark:bg-slate-800">
+<main class="dark:bg-blue-950 dark:text-gray-300">
+    <!-- header/conteudo -->
     <div
-        class="flex justify-between items-center bg-white-300 dark:text-white dark:bg-blue-950 p-5 font-medium text-lg shadow-lg">
+        class="dark:box-decoration-slice dark:bg-gradient-to-r dark:from-indigo-600 dark:to-slate-950 dark:text-white flex justify-between items-center bg-white-300 dark:text-white dark:bg-sky-500/10 p-5 font-medium text-lg shadow-lg">
         Shoplistify
+        <button>
+            <div class="demo-section">
+                <mat-icon [matBadge]="totalProductQuantity" matBadgeColor="warn">shopping_cart</mat-icon>
+            </div>
+        </button>
         <button class="flex transition-transform hover:scale-125 align-middle" (click)="darkMode.set(!darkMode())">
             <span *ngIf="!darkMode()" class="material-icons">dark_mode</span>
             <span *ngIf="darkMode()" class="material-icons">light_mode</span>
         </button>
     </div>
-
-    <app-product-list></app-product-list>
-
-    <button mat-raised-button color="primary">Primary</button>
-
+    <!-- <app-top-bar></app-top-bar> -->
+    <section class="content">
+        <app-product-list #productList></app-product-list>
+        <app-side-bar class="filtroCheckbox dark:bg-blue-950"
+            (handleCategoryFilter)="productList.handleCategoryFilterSideBar($event)"
+            (handlePriceFilter)="productList.handlePriceFilterSideBar($event)"></app-side-bar>
+    </section>
+</main>
+<!-- footer -->
+<div class="bg-gray-200 dark:bg-black relative isolate overflow-hidden py-16 sm:py-24 lg:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+            <div class="max-w-xl lg:max-w-lg">
+                <h2 class="text-3xl font-bold tracking-tight sm:text-4xl text-slate-400">Saiba mais pela newsletter</h2>
+                <p class="mt-4 text-lg leading-8 text-slate-500">Fique por dentro das notícias e promoções</p>
+                <div class="mt-6 flex max-w-md gap-x-4 bg-white rounded-md">
+                    <label for="email-address" class="sr-only text-slate-500">Digite o seu E-mail</label>
+                    <input id="email-address" name="email" type="email" autocomplete="email" required
+                        class="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+                        placeholder="Digite o seu E-mail">
+                    <button type="submit"
+                        class="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-medium text-white hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">Enviar</button>
+                </div>
+            </div>
+            <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
+                <div class="flex flex-col items-start">
+                    <dt class="mt-4 font-medium text-slate-400">Novidades</dt>
+                    <dd class="mt-2 leading-7 text-gray-400 text-slate-500">Novidades em nosso Blog</dd>
+                </div>
+                <div class="flex flex-col items-start">
+                    <dt class="mt-4 font-medium text-slate-400">Contato</dt>
+                    <dd class="mt-2 leading-7 text-gray-400 text-slate-500">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Quas placeat, itaque tempore officia tempora </dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+    <div class="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
+        <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30"
+            style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+        </div>
+    </div>
 </div>

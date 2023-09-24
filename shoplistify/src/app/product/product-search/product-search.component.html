@@ -1,0 +1,25 @@
+<!-- <div>
+
+    <mat-form-field class="example-full-width">
+        <input matInput type="text"placeholder="Pesquisar produtos"[(ngModel)]="searchText"(keyup)="onSearch()">
+    </mat-form-field>
+    
+      
+</div> -->
+
+<div>
+    <mat-form-field class="example-full-width mx-auto">
+      <input matInput type="text" placeholder="Pesquisar produtos" [(ngModel)]="searchText" (keyup)="onSearch()">
+      <button mat-button *ngIf="searchText" (click)="clearSearch()">Limpar</button>
+    </mat-form-field>
+  </div>
+
+
+
+<!-- Input Padrão -->
+<!-- <input 
+          type="text"
+          placeholder="Pesquisar produtos"
+          [(ngModel)]="searchText"
+          (keyup)="onSearch()"
+    /> -->

@@ -1,0 +1,20 @@
+.content {
+  display: flex;
+  // background-color: aquamarine;
+}
+
+app-side-bar {
+  width: 20vw;
+  padding: 10px;
+  background-color: #f5f5f5;
+}
+
+app-product-list {
+  width: 80vw;
+}
+
+@media screen and (max-width: 800px) {
+  .filtroCheckbox {
+    display: none
+  }
+}

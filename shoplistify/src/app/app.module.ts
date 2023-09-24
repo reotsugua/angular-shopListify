@@ -6,20 +6,37 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductModule } from './product/product.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CoreModule } from './core/core.module';
+import {MatIconModule} from '@angular/material/icon';
+import {MatBadgeModule} from '@angular/material/badge';
+
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MatIconModule,
     MatCardModule,
     MatButtonModule,
-    ProductModule
+    ProductModule,
+    FontAwesomeModule,
+    MatDialogModule,
+    FormsModule,
+    MatSnackBarModule,
+    CoreModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -2,23 +2,43 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductModalComponent } from './product-modal/product-modal.component';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-
-
+import { FormsModule } from '@angular/forms';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { SharedModule } from '../shared/shared.module';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { ProductSearchComponent } from './product-search/product-search.component';
+import {MatInputModule} from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { ProductRefreshButtonComponent } from './product-refresh-button/product-refresh-button.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
     ProductListComponent,
-    ProductModalComponent
+    ProductModalComponent,
+    ProductDetailComponent,
+    ProductSearchComponent,
+    ProductRefreshButtonComponent
   ],
   imports: [
     CommonModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
+    MatPaginatorModule,
+    SharedModule,
+    MatInputModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule
   ],
   exports: [
-    ProductListComponent
+    ProductListComponent,
+    ProductSearchComponent
   ]
 })
+
 export class ProductModule { }
