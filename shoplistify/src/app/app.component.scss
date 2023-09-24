@@ -12,3 +12,9 @@ app-side-bar {
 app-product-list {
   width: 80vw;
 }
+
+@media screen and (max-width: 800px) {
+  .filtroCheckbox {
+    display: none
+  }
+}

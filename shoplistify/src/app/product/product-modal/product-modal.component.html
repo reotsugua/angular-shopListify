@@ -4,17 +4,18 @@
     </div>
     <div class="productModal__info">
         <div class="productModal__body">
-            <p class="productModal__title">{{data.name}}</p>
-            <app-star class="productModal__rating" [rating]="data.rating"></app-star>
-            <p class="productModal__text">{{data.category}}</p>
-            <p class="productModal__value">R$ {{data.price}}</p>
-            <p class="productModal__description">{{data.description}}</p>
+            <p class="productModal__title uppercase text-pink-800">{{data.name}}</p>
+            <app-star class="productModal__rating text-yellow-600" [rating]="data.rating"></app-star>
+            <p class="productModal__text text-xs">{{data.category}}</p>
+            <p class="productModal__value font-medium text-pink-700">R$ {{data.price}}</p>
+            <p class="productModal__description text-xs text-justify">{{data.description}}</p>
         </div>
+        <br>
         <div class="productModal__selection">
             <input class="productModal__input" matInput type="number" min="0" [(ngModel)]="quantity"/>
             <div class="productModal__buttons_div">
-                <button class="productModal__button" (click)="changeProductQuantityInCart(data.id, false)">Remover</button>
-                <button class="productModal__button" (click)="changeProductQuantityInCart(data.id, true)">Adicionar</button>
+                <button class="productModal__button text-cyan-50 hover:text-yellow-600" (click)="changeProductQuantityInCart(data.id, false)">Remover</button>
+                <button class="productModal__button text-cyan-50 hover:text-yellow-600" (click)="changeProductQuantityInCart(data.id, true)">Adicionar</button>
             </div>
         </div>
     </div>

@@ -1,7 +1,7 @@
 <main class="dark:bg-blue-950 dark:text-gray-300">
-  <!-- header/conteudo -->
+    <!-- header/conteudo -->
     <div
-        class="flex justify-between items-center bg-white-300 dark:text-white dark:bg-sky-500/10 p-5 font-medium text-lg shadow-lg">
+        class="dark:box-decoration-slice dark:bg-gradient-to-r dark:from-indigo-600 dark:to-slate-950 dark:text-white flex justify-between items-center bg-white-300 dark:text-white dark:bg-sky-500/10 p-5 font-medium text-lg shadow-lg">
         Shoplistify
         <button>
             <div class="demo-section">
@@ -13,13 +13,13 @@
             <span *ngIf="darkMode()" class="material-icons">light_mode</span>
         </button>
     </div>
-   <!-- <app-top-bar></app-top-bar> -->
-   <section class="content">
-    <app-side-bar
-      (handleCategoryFilter)="productList.handleCategoryFilterSideBar($event)"
-      (handlePriceFilter)="productList.handlePriceFilterSideBar($event)"></app-side-bar>
-     <app-product-list #productList></app-product-list>
-   </section>
+    <!-- <app-top-bar></app-top-bar> -->
+    <section class="content">
+        <app-product-list #productList></app-product-list>
+        <app-side-bar class="filtroCheckbox dark:bg-blue-950"
+            (handleCategoryFilter)="productList.handleCategoryFilterSideBar($event)"
+            (handlePriceFilter)="productList.handlePriceFilterSideBar($event)"></app-side-bar>
+    </section>
 </main>
 <!-- footer -->
 <div class="bg-gray-200 dark:bg-black relative isolate overflow-hidden py-16 sm:py-24 lg:py-32">

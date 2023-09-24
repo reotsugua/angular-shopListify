@@ -8,10 +8,9 @@
 
   <div class="productList">
     <mat-card
-      class="example-card"
+      class="example-card rounded-xl shadow-md overflow-hidden dark:text-pink-700"
       *ngFor="let product of products"
       (click)="openProductModal(product)"
-      style="box-shadow: 0px 0px 8px -1px rgba(173,173,173,1);"
     >
       <mat-card-header>
         <div class="example-header-image"></div>
@@ -34,12 +33,12 @@
         </p> -->
       </mat-card-content>
       <mat-card-actions>
-        <div style="width: 52%">
+        <div style="width: 52%" class="text-yellow-600">
           <app-star [rating]="product.rating"></app-star>
         </div>
         <div>
           <button mat-button style="font-size: 1.2rem">
-            R$ {{ product.price | currencyFormat }}
+            <mark class="rounded text-pink-700 shadow-md hover:bg-blue-950 hover:text-yellow-600">R$ {{ product.price | currencyFormat }}</mark>
           </button>
         </div>
       </mat-card-actions>
