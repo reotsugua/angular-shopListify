@@ -11,10 +11,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CoreModule } from './core/core.module';
-import {MatIconModule} from '@angular/material/icon';
-import {MatBadgeModule} from '@angular/material/badge';
-
-
+import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     FormsModule,
     MatSnackBarModule,
     CoreModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

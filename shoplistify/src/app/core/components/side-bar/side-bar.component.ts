@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { RefreshService } from 'src/app/services/refresh.service';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-side-bar',
@@ -25,11 +27,16 @@ export class SideBarComponent implements OnInit {
     range4: false,
   });
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(private _formBuilder: FormBuilder, private refreshService: RefreshService) {}
 
   ngOnInit(): void {
     this.handleCategoryForm();
+
     this.handlePriceForm();
+
+    this.refreshService.getClickEvent().subscribe(() => {
+      this.uncheckAllCheckboxes();
+    })
   }
 
   handleCategoryForm() {
@@ -40,6 +47,7 @@ export class SideBarComponent implements OnInit {
       this.handleCategoryFilter.emit(filterSelected)
     });
   }
+
   handlePriceForm() {
     let filterSelected:string[] = [];
     this.price.valueChanges.subscribe((items:any)=> {
@@ -49,5 +57,21 @@ export class SideBarComponent implements OnInit {
     });
   }
 
+  uncheckAllCheckboxes() {
+    const priceControls = this.price.controls;
+    const categoryControls = this.category.controls;
+
+    for (const controlName in categoryControls) {
+      if (categoryControls.hasOwnProperty(controlName)) {
+        this.category.get(controlName)?.setValue(false);
+      }
+    }
+
+    for (const controlName in priceControls) {
+      if (priceControls.hasOwnProperty(controlName)) {
+        this.price.get(controlName)?.setValue(false);
+      }
+    }
+  }
 
 }

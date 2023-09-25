@@ -1,8 +1,3 @@
-<div style="position: absolute; top: 14px; right: 50px">
-  <app-product-refresh-button
-    (refresh)="resetPagination()"
-  ></app-product-refresh-button>
-</div>
 <section class="">
   <app-product-search (search)="onSearch($event)"></app-product-search>
 
@@ -14,23 +9,16 @@
     >
       <mat-card-header>
         <div class="example-header-image"></div>
-        <!-- <div mat-card-avatar class="example-header-image"></div> -->
         <mat-card-title class="cursor-pointer" style="font-size: 0.85rem">{{
           product.name | uppercase
         }}</mat-card-title>
-        <!-- <mat-card-subtitle >{{product.category | lowercase}}</mat-card-subtitle> -->
       </mat-card-header>
-      <img class="cursor-pointer" mat-card-image [src]="product.avatar" alt="Photo of a Shiba Inu" />
+      <img class="cursor-pointer" mat-card-image [src]="product.avatar" alt="Photo of the product" />
 
       <mat-card-subtitle style="padding-left: 8px">{{
         product.category | lowercase
       }}</mat-card-subtitle>
       <mat-card-content>
-        <!-- <p>
-          The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-          A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-          bred for hunting.
-        </p> -->
       </mat-card-content>
       <mat-card-actions>
         <div style="width: 52%" class="text-yellow-600">
@@ -43,17 +31,6 @@
         </div>
       </mat-card-actions>
     </mat-card>
-    <!-- <div class="cardProduct" *ngFor="let product of products" (click)="openProductModal(product)">
-      <div class="cardProduct__img">
-        <img class="cardProduct__img" [src]="product.avatar" alt="Photo of a Shiba Inu">
-      </div>
-      <div class="cardProduct__body">
-        <p class="cardProduct__title">{{product.name}}</p>
-        <app-star [rating]="product.rating"></app-star>
-        <p class="cardProduct__value">R$ {{product.price}}</p>
-        <p class="cardProduct__text">{{product.category}}</p>
-      </div>
-    </div> -->
   </div>
 
   <div class="paginator">

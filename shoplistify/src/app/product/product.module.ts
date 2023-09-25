@@ -37,7 +37,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   ],
   exports: [
     ProductListComponent,
-    ProductSearchComponent
+    ProductSearchComponent,
+    ProductRefreshButtonComponent
   ]
 })
 

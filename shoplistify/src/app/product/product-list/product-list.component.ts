@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductModalComponent } from '../product-modal/product-modal.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { RefreshService } from 'src/app/services/refresh.service';
 
 @Component({
   selector: 'app-product-list',
@@ -21,7 +22,8 @@ export class ProductListComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private refreshService: RefreshService
   ) {}
 
   ngOnInit(): void {
@@ -39,7 +41,12 @@ export class ProductListComponent implements OnInit {
     } else {
       this.productService.productsTotal$.next(0);
     }
+
     this.loadProducts();
+
+    this.refreshService.getClickEvent().subscribe(() => {
+      this.resetPagination();
+    })
   }
 
   loadProducts() {

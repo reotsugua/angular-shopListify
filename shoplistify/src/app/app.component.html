@@ -1,26 +1,46 @@
-<main class="dark:bg-blue-950 dark:text-gray-300">
-    <!-- header/conteudo -->
-    <div
-        class="dark:box-decoration-slice dark:bg-gradient-to-r dark:from-indigo-600 dark:to-slate-950 dark:text-white flex justify-between items-center bg-white-300 dark:text-white dark:bg-sky-500/10 p-5 font-medium text-lg shadow-lg">
-        Shoplistify
-        <button>
-            <div class="demo-section">
-                <mat-icon [matBadge]="totalProductQuantity" matBadgeColor="warn">shopping_cart</mat-icon>
-            </div>
-        </button>
-        <button class="flex transition-transform hover:scale-125 align-middle" (click)="darkMode.set(!darkMode())">
-            <span *ngIf="!darkMode()" class="material-icons">dark_mode</span>
-            <span *ngIf="darkMode()" class="material-icons">light_mode</span>
-        </button>
-    </div>
-    <!-- <app-top-bar></app-top-bar> -->
-    <section class="content">
-        <app-product-list #productList></app-product-list>
-        <app-side-bar class="filtroCheckbox dark:bg-blue-950"
+<mat-drawer-container>
+    <mat-drawer #sideBar>
+        <app-side-bar class="dark:bg-blue-950"
             (handleCategoryFilter)="productList.handleCategoryFilterSideBar($event)"
-            (handlePriceFilter)="productList.handlePriceFilterSideBar($event)"></app-side-bar>
-    </section>
-</main>
+            (handlePriceFilter)="productList.handlePriceFilterSideBar($event)">
+        </app-side-bar >
+    </mat-drawer>
+    <mat-drawer-content>
+        <main class="dark:bg-blue-950 dark:text-gray-300">
+            <!-- header/conteudo -->
+            <div
+                class="dark:box-decoration-slice dark:bg-gradient-to-r dark:from-indigo-600 dark:to-slate-950 dark:text-white flex justify-between items-center bg-white-300 dark:text-white dark:bg-sky-500/10 p-5 font-medium text-lg shadow-lg">
+                <div class="header-title-div">
+                    <button mat-icon-button class="hamburguer-button" (click)="sideBar.toggle()"><mat-icon>menu</mat-icon></button>
+                    Shoplistify
+                </div>
+        
+                <div class="header-buttons-div">
+                    <button>
+                        <div class="demo-section">
+                            <mat-icon [matBadge]="totalProductQuantity" matBadgeColor="warn">shopping_cart</mat-icon>
+                        </div>
+                    </button>
+            
+                    <app-product-refresh-button
+                        (refresh)="resetPagination()"
+                    ></app-product-refresh-button>
+            
+                    <button class="flex transition-transform hover:scale-125 align-middle" (click)="darkMode.set(!darkMode())">
+                        <span *ngIf="!darkMode()" class="material-icons">dark_mode</span>
+                        <span *ngIf="darkMode()" class="material-icons">light_mode</span>
+                    </button>
+                </div>
+            </div>
+        
+            <!-- <app-top-bar></app-top-bar> -->
+            <section class="content">
+                <app-product-list #productList></app-product-list>
+            </section>
+        </main>
+    </mat-drawer-content>
+</mat-drawer-container>
+
 <!-- footer -->
 <div class="bg-gray-200 dark:bg-black relative isolate overflow-hidden py-16 sm:py-24 lg:py-32">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
