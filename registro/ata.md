@@ -25,3 +25,11 @@
 + Criamos as tarefas dentro do Trello, e atribuímos uma delas a cada um dos integrantes do grupo
 
 + Definimos a forma pela qual vamos documentar o andamento do projeto
+
+## Reuniões três a cinco - 19/09 a 22/09
++ Começamos a trabalhar de acordo com a distribuição de projetos feita no Trello
+
++ Conforme os componentes ou features eram entregues, eles eram analisados pelos demais integrantes, com sugestões e correções, quando necessário
+
++ Também aproveitamos os momentos de reunião para discutir como implementar os requisitos do projeto, e interpretar o que exatamente estava sendo exigido
+

@@ -1,0 +1,72 @@
+.container {
+  // margin: 0 auto;
+  // max-width: 1166px;
+  padding: 30px 25px 0;
+}
+
+.productList {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-height: 80vh;
+}
+
+.cardProduct {
+  display: flex;
+  border: solid 1px #dedede;
+  border-radius: 20px;
+  margin: 10px 0;
+  max-width: 500px;
+  min-width: 303px;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 25%)0 4px 4px 0;
+  height: 95px;
+
+  &:hover{
+    cursor: pointer;
+    opacity: 0.7;
+  }
+
+  &__img {
+    border-radius: 20px 0 0 20px;
+    max-width: 160px;
+    height: 95px;
+  }
+
+  &__body {
+    padding: 10px;
+  }
+
+  &__title {
+    font-size: 12px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  &__value {
+    margin: 0;
+  }
+
+  &__text {
+    font-size: 10px;
+  }
+}
+
+.paginator {
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.example-card {
+  max-width: 16.8rem;
+}
+
+// .example-header-image {
+//   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+//   background-size: cover;
+// }
+

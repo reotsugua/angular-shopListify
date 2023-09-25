@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { ProductListComponent } from './product-list.component';
+import { ProductModule } from '../product.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('ProductListComponent', () => {
   let component: ProductListComponent;
@@ -8,6 +10,7 @@ describe('ProductListComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
+      imports: [ProductModule, HttpClientModule, MatDialogModule],
       declarations: [ProductListComponent]
     });
     fixture = TestBed.createComponent(ProductListComponent);

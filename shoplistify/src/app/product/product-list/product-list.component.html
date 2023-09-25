@@ -1,5 +1,47 @@
-<p>product-list works!</p>
+<section class="">
+  <app-product-search (search)="onSearch($event)"></app-product-search>
 
-<div *ngFor="let product of products">
-  {{ product.name }} - {{ product.price }} - {{ product.category }}
-</div>
+  <div class="productList">
+    <mat-card
+      class="example-card rounded-xl shadow-md overflow-hidden dark:text-pink-700"
+      *ngFor="let product of products"
+      (click)="openProductModal(product)"
+    >
+      <mat-card-header>
+        <div class="example-header-image"></div>
+        <mat-card-title class="cursor-pointer" style="font-size: 0.85rem">{{
+          product.name | uppercase
+        }}</mat-card-title>
+      </mat-card-header>
+      <img class="cursor-pointer" mat-card-image [src]="product.avatar" alt="Photo of the product" />
+
+      <mat-card-subtitle style="padding-left: 8px">{{
+        product.category | lowercase
+      }}</mat-card-subtitle>
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions>
+        <div style="width: 52%" class="text-yellow-600">
+          <app-star [rating]="product.rating"></app-star>
+        </div>
+        <div>
+          <button mat-button style="font-size: 1.2rem">
+            <mark class="rounded text-pink-700 shadow-md hover:bg-blue-950 hover:text-yellow-600">R$ {{ product.price | currencyFormat }}</mark>
+          </button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="paginator">
+    <mat-paginator
+      class="dark:bg-blue-950 dark:text-gray-300"
+      [length]="1000"
+      [pageSize]="9"
+      [pageSizeOptions]="[3, 6, 12, 15, 24, 36, 99]"
+      aria-label="Select page"
+      (page)="handlePageEvent($event)"
+    >
+    </mat-paginator>
+  </div>
+</section>
